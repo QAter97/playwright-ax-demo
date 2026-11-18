@@ -1,0 +1,9 @@
+{
+  "customer": { "firstName": "Demo", "lastName": "Tester", "postalCode": "12345" },
+  "expected": { "subtotalCents": 3998, "taxCents": 320, "totalCents": 4318 },
+  "missingFields": [
+    { "field": "firstName", "label": "이름", "message": "Error: First Name is required" },
+    { "field": "lastName", "label": "성", "message": "Error: Last Name is required" },
+    { "field": "postalCode", "label": "우편번호", "message": "Error: Postal Code is required" }
+  ]
+}
