@@ -1,5 +1,4 @@
 {
-  "standard": {
-    "username": "standard_user"
-  }
+  "standard": { "username": "standard_user", "knownIssue": null },
+  "problem": { "username": "problem_user", "knownIssue": "KI-001" }
 }

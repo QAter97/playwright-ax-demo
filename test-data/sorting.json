@@ -1,0 +1,6 @@
+[
+  { "value": "az", "label": "이름 오름차순", "field": "name", "direction": "ascending" },
+  { "value": "za", "label": "이름 내림차순", "field": "name", "direction": "descending" },
+  { "value": "lohi", "label": "가격 오름차순", "field": "price", "direction": "ascending" },
+  { "value": "hilo", "label": "가격 내림차순", "field": "price", "direction": "descending" }
+]

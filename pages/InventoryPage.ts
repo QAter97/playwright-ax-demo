@@ -82,6 +82,28 @@ export class InventoryPage {
     await this.expectReady();
   }
 
+  async readCatalog(): Promise<Array<{ name: string; priceCents: number }>> {
+    const items = this.page.getByTestId('inventory-item');
+    const count = await items.count();
+    const catalog: Array<{ name: string; priceCents: number }> = [];
+    for (let index = 0; index < count; index++) {
+      const item = items.nth(index);
+      const name = await item.getByTestId('inventory-item-name').innerText();
+      const price = await item.getByTestId('inventory-item-price').innerText();
+      const match = price.match(/^\$(\d+)\.(\d{2})$/);
+      if (!match) {
+        throw new Error('상품 가격 형식을 확인하세요: ' + price);
+      }
+      catalog.push({ name, priceCents: Number(match[1]) * 100 + Number(match[2]) });
+    }
+    return catalog;
+  }
+
+  async selectSort(value: string): Promise<void> {
+    const sort = this.page.getByRole('combobox');
+    await sort.selectOption(value);
+    await expect(sort).toHaveValue(value);
+  }
   async openCart(): Promise<void> {
     await this.page.getByTestId('shopping-cart-link').click();
     await expect(this.page.getByTestId('title')).toHaveText('Your Cart');

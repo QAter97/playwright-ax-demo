@@ -12,6 +12,18 @@ export class CheckoutPage {
     await this.page.getByTestId('postalCode').fill(customer.postalCode);
   }
 
+  async readInformation(): Promise<Customer> {
+    return {
+      firstName: await this.page.getByTestId('firstName').inputValue(),
+      lastName: await this.page.getByTestId('lastName').inputValue(),
+      postalCode: await this.page.getByTestId('postalCode').inputValue(),
+    };
+  }
+
+  async screenshot(): Promise<Buffer> {
+    return this.page.screenshot({ fullPage: true });
+  }
+
   async continue(): Promise<void> {
     await this.page.getByRole('button', { name: 'Continue', exact: true }).click();
   }

@@ -6,6 +6,7 @@ import { CheckoutPage } from '../pages/CheckoutPage';
 import users from '../test-data/users.json';
 
 type Fixtures = {
+  username: string;
   authenticatedPage: Page;
   inventoryPage: InventoryPage;
   cartPage: CartPage;
@@ -13,14 +14,15 @@ type Fixtures = {
 };
 
 export const test = base.extend<Fixtures>({
-  authenticatedPage: async ({ page }, use) => {
+  username: [users.standard.username, { option: true }],
+  authenticatedPage: async ({ page, username }, use) => {
     const password = process.env.SAUCE_PASSWORD;
     if (!password) {
       throw new Error('프로젝트 .env에 SAUCE_PASSWORD를 설정하세요.');
     }
     const login = new LoginPage(page);
     await login.open();
-    await login.login(users.standard.username, password);
+    await login.login(username, password);
     await new InventoryPage(page).expectReady();
     await use(page);
   },
