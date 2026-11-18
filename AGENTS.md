@@ -45,7 +45,6 @@ test-data/   users.json, checkout.json
 tests/e2e/   영역별 UI 테스트
 tests/api/   API 테스트
 playwright.config.ts
-.github/workflows/e2e.yml
 ```
 
 ## 6. TC 작성 규칙
