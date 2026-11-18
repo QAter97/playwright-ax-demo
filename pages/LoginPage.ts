@@ -8,6 +8,12 @@ export class LoginPage {
     await this.page.goto('/');
   }
 
+  async login(username: string, password: string): Promise<void> {
+    await this.page.getByTestId(loginData.usernameTestId).fill(username);
+    await this.page.getByTestId(loginData.passwordTestId).fill(password);
+    await this.page.getByRole('button', { name: loginData.loginButtonName, exact: true }).click();
+  }
+
   async expectReady(): Promise<void> {
     const usernameInput = this.page.getByTestId(loginData.usernameTestId);
     const passwordInput = this.page.getByTestId(loginData.passwordTestId);

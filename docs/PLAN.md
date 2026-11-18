@@ -70,3 +70,6 @@ Chromium 설치 경로는 playwright.config.ts에서 프로젝트 .cache/ms-play
 $env:PLAYWRIGHT_BROWSERS_PATH = Join-Path (Get-Location).Path '.cache/ms-playwright'
 node node_modules/playwright/cli.js install chromium
 ~~~
+## P1 실행 결과
+
+TC-LGN-002 구현 완료. P0와 합쳐 설계 TC 2개, Chromium PC·모바일 실제 실행 4건 통과. TypeScript 검사 통과. P2 상품 상세·장바구니·주문 동선을 다음 관찰·리뷰 대상으로 제안한다.
