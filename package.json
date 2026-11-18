@@ -1,0 +1,20 @@
+{
+  "name": "playwright-ax-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-assisted sanity testing demo on a public practice site",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "dotenv": "^18.0.10",
+    "typescript": "^7.0.2"
+  }
+}

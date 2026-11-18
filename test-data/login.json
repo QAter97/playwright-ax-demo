@@ -1,0 +1,5 @@
+{
+  "usernameTestId": "username",
+  "passwordTestId": "password",
+  "loginButtonName": "Login"
+}
