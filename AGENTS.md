@@ -2,7 +2,7 @@
 
 ## 1. 목적
 
-- 실무에서 수행한 테스트 자동화 방식(TC 설계 → 자동화 대상 선정 → Playwright 자동화 → CI)을 공개 연습 사이트에 재현하는 포트폴리오 데모다.
+- 실무에서 수행한 테스트 자동화 방식(TC 설계 → 자동화 대상 선정 → Playwright 자동화 → 실행 리포트)을 공개 연습 사이트에 재현하는 포트폴리오 데모다.
 - 이 레포는 AX 제출서의 결과물 링크로 쓰인다. 심사자가 README만 보고 3분 안에 이해할 수 있어야 한다.
 - 회사명, 내부 시스템, 내부 URL, 내부 수치는 코드·문서·커밋 어디에도 쓰지 않는다.
 
@@ -11,7 +11,7 @@
 - UI 대상: [https://www.saucedemo.com](https://www.saucedemo.com) (standard_user, locked_out_user, problem_user, performance_glitch_user 등 공개 계정, 비밀번호는 .env에서 읽는다)
 - API 대상(선택): 공개 연습 API 1개. 착수 전 사용자에게 확인한다.
 - Playwright + TypeScript, Node LTS, npm
-- CI: GitHub Actions
+- 실행 증빙: 로컬 Playwright HTML 리포트와 캡처, 공개 정적 리포트 페이지
 
 ## 3. 작업 방식 (가장 중요)
 
@@ -31,7 +31,7 @@
 | P1 로그인 | TC 작성 → 리뷰 → Page Object·테스트 | 모든 TC가 자동/수동으로 분류되고 자동 TC 통과 |
 | P2 장바구니·결제 | 동일 흐름, 금액·세금 합계 검증 포함 | 자동 TC 통과 |
 | P3 확장 | 상품 목록, 문제 계정 회귀(데이터 주도), API(선택) | 문제 계정에서 발견한 결함이 known-issues에 기록됨 |
-| P4 CI·리포트 | push·PR 시 Chromium PC·모바일 에뮬레이션 실행, 실패 시 trace·screenshot 보관, HTML 리포트 게시 | PC·모바일 두 환경의 CI 녹색, 리포트 URL 접근 가능 |
+| P4 실행 리포트 | 로컬 Chromium PC·모바일 에뮬레이션 실행 결과와 trace·screenshot 정리, HTML 리포트 게시 | 두 환경의 결과 검증, 리포트 URL의 익명 접근 확인 |
 | P5 문서 | README, docs/ai-workflow.md 지표 정리 | 아래 README 구성 충족 |
 
 ## 5. 디렉터리 구조
